@@ -30,7 +30,7 @@ pipeline {
         stage('4. Push to Docker Hub'){
             steps{
                 script{
-                   sh 'docker login -u %DUSER% -p %DPWD%
+                   sh 'docker login -u %DUSER% -p %DPWD%'
                 }
                 sh 'docker push danicoolbug/customer_jen:latest'
             }
