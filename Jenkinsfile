@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools{
-        maven "Jenkinslab1"
+        maven "mvn"
     }
     environment {
         DB_USER1 = credentials('DB_USER1')
