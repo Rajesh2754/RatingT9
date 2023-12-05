@@ -5,8 +5,8 @@ pipeline {
     }
     environment {
         DB_USER1 = credentials('DB_USER1')
-        DUSER = credentials('dockerhub_username')
-        DPWD = credentials('dockerhub_pwd')
+        DUSER = credentials('DUSER')
+        DPWD = credentials('DPWD')
     }
     stages{
         stage('1. GIT Clone'){
@@ -16,13 +16,13 @@ pipeline {
         }
         stage('2. Maven Clean'){
             steps{
-                bat 'mvn clean install'
+                sh 'mvn clean install'
             }
         }
         stage('3. Build Docker Image'){
             steps{
                 script{
-                    sh 'docker build -f Dockerfile -t danicoolbug/customer_doc:latest .'
+                    sh 'docker build -f Dockerfile -t danicoolbug/customer_jen:latest .'
                     }
             }
 
